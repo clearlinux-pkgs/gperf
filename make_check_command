@@ -1,1 +1,1 @@
-make check-test ||:
+make check all ||:
