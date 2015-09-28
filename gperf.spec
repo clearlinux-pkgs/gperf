@@ -4,7 +4,7 @@
 #
 Name     : gperf
 Version  : 3.0.4
-Release  : 8
+Release  : 9
 URL      : http://ftp.gnu.org/pub/gnu/gperf/gperf-3.0.4.tar.gz
 Source0  : http://ftp.gnu.org/pub/gnu/gperf/gperf-3.0.4.tar.gz
 Summary  : No detailed summary available
@@ -54,7 +54,7 @@ make V=1  %{?_smp_mflags}
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost
-make check ||:
+make check-test ||:
 
 %install
 rm -rf %{buildroot}
