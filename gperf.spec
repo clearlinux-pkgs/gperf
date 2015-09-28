@@ -4,7 +4,7 @@
 #
 Name     : gperf
 Version  : 3.0.4
-Release  : 10
+Release  : 11
 URL      : http://ftp.gnu.org/pub/gnu/gperf/gperf-3.0.4.tar.gz
 Source0  : http://ftp.gnu.org/pub/gnu/gperf/gperf-3.0.4.tar.gz
 Summary  : No detailed summary available
