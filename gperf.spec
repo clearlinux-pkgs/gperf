@@ -6,7 +6,7 @@
 #
 Name     : gperf
 Version  : 3.1
-Release  : 14
+Release  : 15
 URL      : http://ftp.gnu.org/pub/gnu/gperf/gperf-3.1.tar.gz
 Source0  : http://ftp.gnu.org/pub/gnu/gperf/gperf-3.1.tar.gz
 Source99 : http://ftp.gnu.org/pub/gnu/gperf/gperf-3.1.tar.gz.sig
