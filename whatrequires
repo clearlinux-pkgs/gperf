@@ -1,0 +1,17 @@
+# This file contains recursive sources that require this package
+Keras
+Theano
+appstream-glib
+beignet
+ceph
+evolution-data-server
+fontconfig
+grilo-plugins
+libvirt
+mariadb
+pciutils
+sysstat
+systemd
+totem
+vte
+webkitgtk
