@@ -6,7 +6,7 @@
 #
 Name     : gperf
 Version  : 3.1
-Release  : 18
+Release  : 19
 URL      : https://mirrors.kernel.org/gnu/gperf/gperf-3.1.tar.gz
 Source0  : https://mirrors.kernel.org/gnu/gperf/gperf-3.1.tar.gz
 Source99 : https://mirrors.kernel.org/gnu/gperf/gperf-3.1.tar.gz.sig
