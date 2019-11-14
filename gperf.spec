@@ -6,15 +6,17 @@
 #
 Name     : gperf
 Version  : 3.1
-Release  : 19
+Release  : 20
 URL      : https://mirrors.kernel.org/gnu/gperf/gperf-3.1.tar.gz
 Source0  : https://mirrors.kernel.org/gnu/gperf/gperf-3.1.tar.gz
-Source99 : https://mirrors.kernel.org/gnu/gperf/gperf-3.1.tar.gz.sig
+Source1 : https://mirrors.kernel.org/gnu/gperf/gperf-3.1.tar.gz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-3.0 GPL-3.0+
-Requires: gperf-bin
-Requires: gperf-doc
+Requires: gperf-bin = %{version}-%{release}
+Requires: gperf-info = %{version}-%{release}
+Requires: gperf-license = %{version}-%{release}
+Requires: gperf-man = %{version}-%{release}
 
 %description
 This is GNU gperf. It is a program that generates perfect hash
@@ -23,6 +25,7 @@ functions for sets of key words.  A perfect hash function is:
 %package bin
 Summary: bin components for the gperf package.
 Group: Binaries
+Requires: gperf-license = %{version}-%{release}
 
 %description bin
 bin components for the gperf package.
@@ -31,33 +34,70 @@ bin components for the gperf package.
 %package doc
 Summary: doc components for the gperf package.
 Group: Documentation
+Requires: gperf-man = %{version}-%{release}
+Requires: gperf-info = %{version}-%{release}
 
 %description doc
 doc components for the gperf package.
 
 
+%package info
+Summary: info components for the gperf package.
+Group: Default
+
+%description info
+info components for the gperf package.
+
+
+%package license
+Summary: license components for the gperf package.
+Group: Default
+
+%description license
+license components for the gperf package.
+
+
+%package man
+Summary: man components for the gperf package.
+Group: Default
+
+%description man
+man components for the gperf package.
+
+
 %prep
 %setup -q -n gperf-3.1
+cd %{_builddir}/gperf-3.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1520913036
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1573772526
+export GCC_IGNORE_WERROR=1
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static
 make  %{?_smp_mflags}
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check all ||:
 
 %install
-export SOURCE_DATE_EPOCH=1520913036
+export SOURCE_DATE_EPOCH=1573772526
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/gperf
+cp %{_builddir}/gperf-3.1/COPYING %{buildroot}/usr/share/package-licenses/gperf/8624bcdae55baeef00cd11d5dfcfa60f68710a02
 %make_install
 
 %files
@@ -68,7 +108,17 @@ rm -rf %{buildroot}
 /usr/bin/gperf
 
 %files doc
-%defattr(-,root,root,-)
-%doc /usr/share/info/*
-%doc /usr/share/man/man1/*
+%defattr(0644,root,root,0755)
 /usr/share/doc/gperf.html
+
+%files info
+%defattr(0644,root,root,0755)
+/usr/share/info/gperf.info
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/gperf/8624bcdae55baeef00cd11d5dfcfa60f68710a02
+
+%files man
+%defattr(0644,root,root,0755)
+/usr/share/man/man1/gperf.1
