@@ -13,10 +13,10 @@ libabw
 libe-book
 libfreehand
 libreoffice
+libseccomp
 libvisio
 neovim
 octave
 qtwebengine
 systemd
-systemd-netlogd
 webkitgtk

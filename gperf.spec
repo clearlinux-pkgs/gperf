@@ -6,10 +6,10 @@
 #
 Name     : gperf
 Version  : 3.1
-Release  : 20
+Release  : 21
 URL      : https://mirrors.kernel.org/gnu/gperf/gperf-3.1.tar.gz
 Source0  : https://mirrors.kernel.org/gnu/gperf/gperf-3.1.tar.gz
-Source1 : https://mirrors.kernel.org/gnu/gperf/gperf-3.1.tar.gz.sig
+Source1  : https://mirrors.kernel.org/gnu/gperf/gperf-3.1.tar.gz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-3.0 GPL-3.0+
@@ -74,14 +74,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1573772526
+export SOURCE_DATE_EPOCH=1605244476
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static
 make  %{?_smp_mflags}
@@ -94,7 +94,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check all ||:
 
 %install
-export SOURCE_DATE_EPOCH=1573772526
+export SOURCE_DATE_EPOCH=1605244476
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gperf
 cp %{_builddir}/gperf-3.1/COPYING %{buildroot}/usr/share/package-licenses/gperf/8624bcdae55baeef00cd11d5dfcfa60f68710a02
