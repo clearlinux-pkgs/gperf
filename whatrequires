@@ -2,6 +2,7 @@
 appstream
 appstream-glib
 ceph
+compat-webkitgtk-soname40
 evolution-data-server
 fontconfig
 grilo-plugins
